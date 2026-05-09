@@ -790,7 +790,7 @@
                       Welcome
                     </p>
                     <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
-                      You're in, {{contact.firstname || "there"}}
+                      You're in, there
                     </h1>
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
                       ChurnWire watches your Stripe data for churn signals so you can act before customers leave. Most teams see their first insights within minutes of connecting.
@@ -899,7 +899,7 @@
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+                <a href="#unsubscribe" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
               </p>
             </td>
           </tr>
@@ -987,7 +987,7 @@
                       3 days left on your trial
                     </h1>
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      Hey {{contact.firstname || "there"}}, your ChurnWire trial wraps up on <strong class="email-heading" style="color:#2D2D2D;">{{contact.trial_end_date}}</strong>. Here's what you'd stop seeing:
+                      Hey there, your ChurnWire trial wraps up on <strong class="email-heading" style="color:#2D2D2D;">May 15, 2026</strong>. Here's what you'd stop seeing:
                     </p>
 
                     <!-- What you'd lose -->
@@ -997,7 +997,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">{{contact.at_risk_count || "5"}}</div>
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">5</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">At risk now</div>
                               </td>
                             </tr>
@@ -1007,7 +1007,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">{{contact.signals_count || "12"}}</div>
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">12</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Signals caught</div>
                               </td>
                             </tr>
@@ -1017,7 +1017,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">{{contact.subscriber_count || "83"}}</div>
+                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">83</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Tracked</div>
                               </td>
                             </tr>
@@ -1075,7 +1075,7 @@
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+                <a href="#unsubscribe" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
               </p>
             </td>
           </tr>
@@ -1152,10 +1152,10 @@
                       While you were away
                     </h1>
                     <p class="email-body-text" style="margin:0 0 8px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      Hey {{contact.firstname || "there"}}, it's been a little while since your ChurnWire trial ended. We kept an eye on your Stripe account — here's what happened:
+                      Hey there, it's been a little while since your ChurnWire trial ended. We kept an eye on your Stripe account — here's what happened:
                     </p>
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      <strong style="color:#E04E2A;">{{contact.missed_signals || "3"}} churn signals</strong> fired that you didn't see.
+                      <strong style="color:#E04E2A;">3 churn signals</strong> fired that you didn't see.
                     </p>
 
                     <!-- Example signals -->
@@ -1173,8 +1173,8 @@
                             <tr>
                               <td style="width:3px;background-color:#E04E2A;"></td>
                               <td style="padding:10px 12px;">
-                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_1_customer || "Acme Corp"}}</div>
-                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_1_event || "Payment failed (retry #3)"}}</div>
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Acme Corp</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">Payment failed (retry #3)</div>
                               </td>
                             </tr>
                           </table>
@@ -1186,8 +1186,8 @@
                             <tr>
                               <td style="width:3px;background-color:#E04E2A;"></td>
                               <td style="padding:10px 12px;">
-                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_2_customer || "Foxglove AI"}}</div>
-                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_2_event || "Downgraded to free plan"}}</div>
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Foxglove AI</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">Downgraded to free plan</div>
                               </td>
                             </tr>
                           </table>
@@ -1199,8 +1199,8 @@
                             <tr>
                               <td style="width:3px;background-color:#CC8A2C;"></td>
                               <td style="padding:10px 12px;">
-                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_3_customer || "NovaTech"}}</div>
-                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_3_event || "Card expiring next week"}}</div>
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">NovaTech</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">Card expiring next week</div>
                               </td>
                             </tr>
                           </table>
@@ -1244,7 +1244,7 @@
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+                <a href="#unsubscribe" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
               </p>
             </td>
           </tr>
@@ -1293,7 +1293,7 @@
   </style>
 </head>
 <body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
-  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">New in ChurnWire: {{custom.feature_name || "a feature"}} is now live&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">New in ChurnWire: a feature is now live&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
     <tr>
       <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
@@ -1321,17 +1321,17 @@
                       What's New
                     </p>
                     <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
-                      {{custom.feature_name || "Feature Name"}}
+                      Feature Name
                     </h1>
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      {{custom.feature_intro || "We just shipped something we think you'll love. Here's what it does and why it matters for your churn prevention workflow."}}
+                      We just shipped something we think you'll love. Here's what it does and why it matters for your churn prevention workflow.
                     </p>
 
                     <!-- Feature screenshot placeholder -->
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
                       <tr>
                         <td>
-                          <img class="email-feature-img" src="{{custom.feature_image || "https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png"}}" alt="{{custom.feature_name || "Feature"}}" width="456" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #E2E4E8;">
+                          <img class="email-feature-img" src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="Feature" width="456" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #E2E4E8;">
                         </td>
                       </tr>
                     </table>
@@ -1343,8 +1343,8 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 16px;">
-                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_1_title || "Faster insights"}}</div>
-                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_1_desc || "See churn signals as they happen, not the next morning."}}</div>
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Faster insights</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">See churn signals as they happen, not the next morning.</div>
                               </td>
                             </tr>
                           </table>
@@ -1355,8 +1355,8 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 16px;">
-                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_2_title || "Zero setup"}}</div>
-                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_2_desc || "It's already enabled in your dashboard — nothing to configure."}}</div>
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Zero setup</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">It's already enabled in your dashboard — nothing to configure.</div>
                               </td>
                             </tr>
                           </table>
@@ -1367,8 +1367,8 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 16px;">
-                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_3_title || "Works with your flow"}}</div>
-                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_3_desc || "Integrates with the signals you already watch in your daily digest."}}</div>
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Works with your flow</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">Integrates with the signals you already watch in your daily digest.</div>
                               </td>
                             </tr>
                           </table>
@@ -1383,8 +1383,8 @@
                           <table role="presentation" cellpadding="0" cellspacing="0">
                             <tr>
                               <td style="border-radius:10px;background-color:#E04E2A;">
-                                <a class="email-cta-link" href="{{custom.feature_link || "https://churnwire.com/app"}}" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
-                                  {{custom.cta_text || "Try it now"}} &rarr;
+                                <a class="email-cta-link" href="https://churnwire.com/app" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Try it now &rarr;
                                 </a>
                               </td>
                             </tr>
@@ -1408,7 +1408,7 @@
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+                <a href="#unsubscribe" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
               </p>
             </td>
           </tr>
@@ -1466,7 +1466,7 @@
   </style>
 </head>
 <body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
-  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">How {{custom.company_name || "a SaaS team"}} saved {{custom.mrr_saved || "$4,200"}}/mo in MRR with ChurnWire&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">How a SaaS team saved $4,200/mo in MRR with ChurnWire&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
     <tr>
       <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
@@ -1494,10 +1494,10 @@
                       Customer Story
                     </p>
                     <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
-                      How {{custom.company_name || "Acme SaaS"}} saved {{custom.mrr_saved || "$4,200"}}/mo in MRR
+                      How Acme SaaS saved $4,200/mo in MRR
                     </h1>
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      {{custom.company_name || "Acme SaaS"}} is a {{custom.company_size || "50-person"}} {{custom.company_type || "B2B SaaS"}} team. Before ChurnWire, they were losing customers they didn't know were at risk until the cancellation came through.
+                      Acme SaaS is a 50-person B2B SaaS team. Before ChurnWire, they were losing customers they didn't know were at risk until the cancellation came through.
                     </p>
 
                     <!-- Results stats -->
@@ -1507,7 +1507,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">{{custom.mrr_saved || "$4,200"}}</div>
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">$4,200</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">MRR saved/mo</div>
                               </td>
                             </tr>
@@ -1517,7 +1517,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">{{custom.churn_reduction || "34%"}}</div>
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">34%</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Less churn</div>
                               </td>
                             </tr>
@@ -1527,7 +1527,7 @@
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
                             <tr>
                               <td style="padding:14px 12px;text-align:center;">
-                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">{{custom.time_to_value || "2 min"}}</div>
+                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">2 min</div>
                                 <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">To first insight</div>
                               </td>
                             </tr>
@@ -1537,7 +1537,7 @@
                     </table>
 
                     <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
-                      {{custom.story_body || "Within the first week, ChurnWire flagged three customers with failed payments that had gone unnoticed. The team reached out, updated the cards, and kept all three accounts. That alone covered six months of ChurnWire's cost."}}
+                      Within the first week, ChurnWire flagged three customers with failed payments that had gone unnoticed. The team reached out, updated the cards, and kept all three accounts. That alone covered six months of ChurnWire's cost.
                     </p>
 
                     <!-- Quote -->
@@ -1548,10 +1548,10 @@
                             <tr>
                               <td style="padding:20px;">
                                 <p class="email-quote-text" style="margin:0 0 12px;font-size:14px;color:#2D2D2D;line-height:1.7;font-style:italic;">
-                                  "{{custom.quote || "We were flying blind on churn. Now I know exactly which customers need a call before they leave. It's like having a sixth sense for revenue risk."}}"
+                                  "We were flying blind on churn. Now I know exactly which customers need a call before they leave. It's like having a sixth sense for revenue risk."
                                 </p>
                                 <p class="email-quote-attr" style="margin:0;font-size:12px;color:#8A8F9A;font-weight:500;">
-                                  — {{custom.quote_author || "Sarah Chen"}}, {{custom.quote_role || "Head of CS"}} at {{custom.company_name || "Acme SaaS"}}
+                                  — Sarah Chen, Head of CS at Acme SaaS
                                 </p>
                               </td>
                             </tr>
@@ -1592,7 +1592,7 @@
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com" style="color:#8A8F9A;text-decoration:underline;">Learn more</a>
                 &nbsp;&middot;&nbsp;
-                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+                <a href="#unsubscribe" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
               </p>
             </td>
           </tr>
