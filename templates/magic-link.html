@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
   <style>
+    :root { color-scheme: light dark; }
     @media screen and (max-width: 480px) {
       .email-body-cell { padding: 20px 16px 28px !important; }
       .email-outer-pad { padding: 20px 12px 0 !important; }
@@ -13,12 +16,26 @@
       .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
       .email-divider { margin: 0 16px !important; }
     }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-footer a { color: #8A8F9A !important; }
+      .email-link-fallback { color: #E04E2A !important; }
+      .email-link-label { color: #B0B5BE !important; }
+    }
   </style>
 </head>
-<body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Sign in to ChurnWire &#8212; your magic link is ready&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
     <tr>
       <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
           <!-- Header image -->
           <tr>
@@ -28,14 +45,14 @@
           </tr>
           <!-- Divider -->
           <tr>
-            <td style="background-color:#FFFFFF;">
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
               <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
             </td>
           </tr>
           <!-- Body -->
           <tr>
             <td>
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
                 <tr>
                   <td class="email-body-cell" style="padding:28px 32px 36px;">
                     <h1 class="email-h1" style="margin:0 0 8px;font-size:20px;font-weight:700;letter-spacing:-0.02em;color:#2D2D2D;">
@@ -60,13 +77,13 @@
                         </td>
                       </tr>
                     </table>
-                    <p style="margin:24px 0 0;font-size:12px;color:#8A8F9A;line-height:1.6;text-align:center;">
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;line-height:1.6;text-align:center;">
                       This link expires in 15 minutes and can only be used once.
                     </p>
                     <hr style="margin:28px 0;border:none;border-top:1px solid #F0F1F3;">
-                    <p style="margin:0;font-size:11px;color:#8A8F9A;line-height:1.5;word-break:break-all;">
-                      <span style="color:#5E6370;font-weight:500;">Can't click the button?</span> Copy this link:<br>
-                      <a href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="color:#E04E2A;text-decoration:none;">https://churnwire.com/api/auth/magic-link/verify?token=example</a>
+                    <p class="email-muted" style="margin:0;font-size:11px;color:#8A8F9A;line-height:1.5;word-break:break-all;">
+                      <span class="email-link-label" style="color:#5E6370;font-weight:500;">Can't click the button?</span> Copy this link:<br>
+                      <a class="email-link-fallback" href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="color:#E04E2A;text-decoration:none;">https://churnwire.com/api/auth/magic-link/verify?token=example</a>
                     </p>
                   </td>
                 </tr>
@@ -76,13 +93,14 @@
           <!-- Footer -->
           <tr>
             <td style="padding:20px 0 40px;text-align:center;">
-              <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
                 ChurnWire — Know who's leaving before they do<br>
                 <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
               </p>
             </td>
           </tr>
         </table>
+        <!--[if mso]></td></tr></table><![endif]-->
       </td>
     </tr>
   </table>
