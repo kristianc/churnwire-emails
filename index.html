@@ -111,6 +111,7 @@
 
     .badge-transactional { background: hsl(152 69% 40% / 0.1); color: hsl(152 69% 30%); }
     .badge-digest { background: hsl(14 78% 54% / 0.08); color: hsl(14 78% 42%); }
+    .badge-marketing { background: hsl(220 70% 50% / 0.1); color: hsl(220 70% 40%); }
 
     .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
@@ -725,6 +726,885 @@
 </html>
   </script>
 
+  <script id="tpl-welcome" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+      .email-step-num { width: 28px !important; height: 28px !important; font-size: 12px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-step-card { background-color: #1A1D23 !important; border-color: #3A3D45 !important; }
+      .email-step-title { color: #F0F1F3 !important; }
+      .email-step-desc { color: #B0B5BE !important; }
+      .email-footer a { color: #8A8F9A !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Welcome to ChurnWire — connect Stripe to see your first dashboard in 2 minutes&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p class="email-muted" style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      Welcome
+                    </p>
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      You're in, {{contact.firstname || "there"}}
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      ChurnWire watches your Stripe data for churn signals so you can act before customers leave. Most teams see their first insights within minutes of connecting.
+                    </p>
+
+                    <!-- Steps -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <!-- Step 1 -->
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-step-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:16px;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                  <tr>
+                                    <td style="width:40px;vertical-align:top;">
+                                      <div class="email-step-num" style="width:32px;height:32px;border-radius:50%;background-color:#E04E2A;color:#FFFFFF;font-size:14px;font-weight:700;text-align:center;line-height:32px;">1</div>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                      <div class="email-step-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Connect Stripe</div>
+                                      <div class="email-step-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">One click, read-only access. We never touch your billing.</div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <!-- Step 2 -->
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-step-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:16px;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                  <tr>
+                                    <td style="width:40px;vertical-align:top;">
+                                      <div class="email-step-num" style="width:32px;height:32px;border-radius:50%;background-color:#E04E2A;color:#FFFFFF;font-size:14px;font-weight:700;text-align:center;line-height:32px;">2</div>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                      <div class="email-step-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Review your dashboard</div>
+                                      <div class="email-step-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">See which customers are healthy, at risk, or showing churn signals.</div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <!-- Step 3 -->
+                      <tr>
+                        <td>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-step-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:16px;">
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                  <tr>
+                                    <td style="width:40px;vertical-align:top;">
+                                      <div class="email-step-num" style="width:32px;height:32px;border-radius:50%;background-color:#E04E2A;color:#FFFFFF;font-size:14px;font-weight:700;text-align:center;line-height:32px;">3</div>
+                                    </td>
+                                    <td style="vertical-align:top;">
+                                      <div class="email-step-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">Get your daily digest</div>
+                                      <div class="email-step-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">Every morning at 9am, we'll email you the customers that need your attention.</div>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a class="email-cta-link" href="https://churnwire.com/app/onboarding" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Connect Stripe &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;line-height:1.6;">
+                      Your 14-day trial is active — no credit card required.<br>
+                      Reply to this email anytime, it goes straight to my inbox.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire — Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-trial-ending" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-stat-row { display: block !important; }
+      .email-stat-cell {
+        display: inline-block !important;
+        width: 48% !important;
+        margin-bottom: 8px !important;
+        padding: 0 2px !important;
+      }
+      .email-stat-value { font-size: 18px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-stat-card { background-color: #2A2D35 !important; border-color: #3A3D45 !important; }
+      .email-stat-value-dark { color: #F0F1F3 !important; }
+      .email-callout { background-color: #2A2D35 !important; border-color: #3A3D45 !important; }
+      .email-callout-text { color: #B0B5BE !important; }
+      .email-footer a { color: #8A8F9A !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Your trial ends in 3 days — don't lose visibility into your at-risk customers&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p class="email-muted" style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      Trial Update
+                    </p>
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      3 days left on your trial
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      Hey {{contact.firstname || "there"}}, your ChurnWire trial wraps up on <strong class="email-heading" style="color:#2D2D2D;">{{contact.trial_end_date}}</strong>. Here's what you'd stop seeing:
+                    </p>
+
+                    <!-- What you'd lose -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr class="email-stat-row">
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">{{contact.at_risk_count || "5"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">At risk now</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">{{contact.signals_count || "12"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Signals caught</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">{{contact.subscriber_count || "83"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Tracked</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Callout -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-callout" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;border-left:3px solid #E04E2A;">
+                            <tr>
+                              <td style="padding:16px 20px;">
+                                <p class="email-callout-text" style="margin:0;font-size:13px;color:#5E6370;line-height:1.6;">
+                                  Without ChurnWire, these signals go unnoticed until the cancellation email lands. Upgrading takes 30 seconds and keeps your daily digest running.
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a class="email-cta-link" href="https://churnwire.com/app/settings?tab=billing" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Upgrade now &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;line-height:1.6;">
+                      Questions? Just reply — happy to help.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire — Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-win-back" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-signal-border { border-color: #3A3D45 !important; }
+      .email-signal-row { border-color: #3A3D45 !important; }
+      .email-signal-customer { color: #F0F1F3 !important; }
+      .email-signal-detail { color: #B0B5BE !important; }
+      .email-footer a { color: #8A8F9A !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Your customers are showing churn signals — here's what you're missing&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      While you were away
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 8px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      Hey {{contact.firstname || "there"}}, it's been a little while since your ChurnWire trial ended. We kept an eye on your Stripe account — here's what happened:
+                    </p>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      <strong style="color:#E04E2A;">{{contact.missed_signals || "3"}} churn signals</strong> fired that you didn't see.
+                    </p>
+
+                    <!-- Example signals -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <span class="email-heading" style="font-size:13px;font-weight:600;color:#2D2D2D;">Signals you missed</span>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-border" style="border:1px solid #E2E4E8;border-radius:10px;overflow:hidden;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row" style="border-bottom:1px solid #F0F1F3;">
+                            <tr>
+                              <td style="width:3px;background-color:#E04E2A;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_1_customer || "Acme Corp"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_1_event || "Payment failed (retry #3)"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row" style="border-bottom:1px solid #F0F1F3;">
+                            <tr>
+                              <td style="width:3px;background-color:#E04E2A;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_2_customer || "Foxglove AI"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_2_event || "Downgraded to free plan"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row">
+                            <tr>
+                              <td style="width:3px;background-color:#CC8A2C;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">{{contact.missed_signal_3_customer || "NovaTech"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:#5E6370;">{{contact.missed_signal_3_event || "Card expiring next week"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      Each of these was a chance to reach out and save the account. Your trial data is still here — pick up where you left off.
+                    </p>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a class="email-cta-link" href="https://churnwire.com/app/settings?tab=billing" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Reactivate my account &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;line-height:1.6;">
+                      Not the right time? No worries — we won't email again.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire — Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-feature-announcement" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+      .email-feature-img { border-radius: 8px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-feature-card { background-color: #1A1D23 !important; border-color: #3A3D45 !important; }
+      .email-feature-title { color: #F0F1F3 !important; }
+      .email-feature-desc { color: #B0B5BE !important; }
+      .email-footer a { color: #8A8F9A !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">New in ChurnWire: {{custom.feature_name || "a feature"}} is now live&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p class="email-muted" style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      What's New
+                    </p>
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      {{custom.feature_name || "Feature Name"}}
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      {{custom.feature_intro || "We just shipped something we think you'll love. Here's what it does and why it matters for your churn prevention workflow."}}
+                    </p>
+
+                    <!-- Feature screenshot placeholder -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td>
+                          <img class="email-feature-img" src="{{custom.feature_image || "https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png"}}" alt="{{custom.feature_name || "Feature"}}" width="456" style="width:100%;height:auto;display:block;border-radius:10px;border:1px solid #E2E4E8;">
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Benefit bullets -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 16px;">
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_1_title || "Faster insights"}}</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_1_desc || "See churn signals as they happen, not the next morning."}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 16px;">
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_2_title || "Zero setup"}}</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_2_desc || "It's already enabled in your dashboard — nothing to configure."}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-feature-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 16px;">
+                                <div class="email-feature-title" style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:4px;">{{custom.benefit_3_title || "Works with your flow"}}</div>
+                                <div class="email-feature-desc" style="font-size:12px;color:#5E6370;line-height:1.5;">{{custom.benefit_3_desc || "Integrates with the signals you already watch in your daily digest."}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a class="email-cta-link" href="{{custom.feature_link || "https://churnwire.com/app"}}" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  {{custom.cta_text || "Try it now"}} &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;line-height:1.6;">
+                      Have feedback? Reply to this email — we read every one.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire — Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-case-study" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-stat-row { display: block !important; }
+      .email-stat-cell {
+        display: inline-block !important;
+        width: 48% !important;
+        margin-bottom: 8px !important;
+        padding: 0 2px !important;
+      }
+      .email-stat-value { font-size: 18px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: #1A1D23 !important; }
+      .email-card { background-color: #2A2D35 !important; }
+      .email-divider-cell { background-color: #2A2D35 !important; }
+      .email-divider { background-color: #3A3D45 !important; }
+      .email-h1, .email-heading { color: #F0F1F3 !important; }
+      .email-body-text { color: #B0B5BE !important; }
+      .email-muted { color: #8A8F9A !important; }
+      .email-stat-card { background-color: #2A2D35 !important; border-color: #3A3D45 !important; }
+      .email-stat-value-dark { color: #F0F1F3 !important; }
+      .email-quote-card { background-color: #1A1D23 !important; border-color: #3A3D45 !important; }
+      .email-quote-text { color: #B0B5BE !important; }
+      .email-quote-attr { color: #8A8F9A !important; }
+      .email-footer a { color: #8A8F9A !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:#FAFAF9;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">How {{custom.company_name || "a SaaS team"}} saved {{custom.mrr_saved || "$4,200"}}/mo in MRR with ChurnWire&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:#FFFFFF;">
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p class="email-muted" style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      Customer Story
+                    </p>
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      How {{custom.company_name || "Acme SaaS"}} saved {{custom.mrr_saved || "$4,200"}}/mo in MRR
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      {{custom.company_name || "Acme SaaS"}} is a {{custom.company_size || "50-person"}} {{custom.company_type || "B2B SaaS"}} team. Before ChurnWire, they were losing customers they didn't know were at risk until the cancellation came through.
+                    </p>
+
+                    <!-- Results stats -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr class="email-stat-row">
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">{{custom.mrr_saved || "$4,200"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">MRR saved/mo</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">{{custom.churn_reduction || "34%"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">Less churn</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td class="email-stat-cell" style="width:33%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-stat-card" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr>
+                              <td style="padding:14px 12px;text-align:center;">
+                                <div class="email-stat-value email-stat-value-dark" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">{{custom.time_to_value || "2 min"}}</div>
+                                <div class="email-muted" style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">To first insight</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.7;">
+                      {{custom.story_body || "Within the first week, ChurnWire flagged three customers with failed payments that had gone unnoticed. The team reached out, updated the cards, and kept all three accounts. That alone covered six months of ChurnWire's cost."}}
+                    </p>
+
+                    <!-- Quote -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-quote-card" style="background:#FAFAF9;border:1px solid #E2E4E8;border-radius:10px;border-left:3px solid #E04E2A;">
+                            <tr>
+                              <td style="padding:20px;">
+                                <p class="email-quote-text" style="margin:0 0 12px;font-size:14px;color:#2D2D2D;line-height:1.7;font-style:italic;">
+                                  "{{custom.quote || "We were flying blind on churn. Now I know exactly which customers need a call before they leave. It's like having a sixth sense for revenue risk."}}"
+                                </p>
+                                <p class="email-quote-attr" style="margin:0;font-size:12px;color:#8A8F9A;font-weight:500;">
+                                  — {{custom.quote_author || "Sarah Chen"}}, {{custom.quote_role || "Head of CS"}} at {{custom.company_name || "Acme SaaS"}}
+                                </p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a class="email-cta-link" href="https://churnwire.com/app/onboarding" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Start your free trial &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;line-height:1.6;">
+                      14-day free trial. Connect Stripe in one click. No credit card required.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire — Know who's leaving before they do<br>
+                <a href="https://churnwire.com" style="color:#8A8F9A;text-decoration:underline;">Learn more</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#8A8F9A;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
   <script>
     const templates = [
       {
@@ -747,6 +1627,41 @@
         subject: '0 customers need attention — ChurnWire Daily',
         type: 'digest',
         scriptId: 'tpl-digest-empty',
+      },
+      {
+        id: 'welcome',
+        name: 'Welcome',
+        subject: 'Welcome to ChurnWire — let\'s get started',
+        type: 'marketing',
+        scriptId: 'tpl-welcome',
+      },
+      {
+        id: 'trial-ending',
+        name: 'Trial Ending',
+        subject: '3 days left on your trial',
+        type: 'marketing',
+        scriptId: 'tpl-trial-ending',
+      },
+      {
+        id: 'win-back',
+        name: 'Win-back',
+        subject: 'Your customers showed churn signals while you were away',
+        type: 'marketing',
+        scriptId: 'tpl-win-back',
+      },
+      {
+        id: 'feature-announcement',
+        name: 'Feature Announcement',
+        subject: 'New in ChurnWire: Feature Name',
+        type: 'marketing',
+        scriptId: 'tpl-feature-announcement',
+      },
+      {
+        id: 'case-study',
+        name: 'Case Study',
+        subject: 'How Acme SaaS saved $4,200/mo in MRR',
+        type: 'marketing',
+        scriptId: 'tpl-case-study',
       },
     ];
 
