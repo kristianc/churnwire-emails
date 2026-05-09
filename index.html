@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChurnWire Email Templates</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Email Templates | ChurnWire</title>
+  <link rel="icon" href="https://api.segment8.com/storage/v1/object/public/ws-04-02/churnwire-logo.png" type="image/png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,12 +21,14 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       height: 100vh;
       overflow: hidden;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "rlig" 1, "calt" 1;
     }
 
     .layout { display: flex; height: 100vh; }
@@ -42,20 +44,23 @@
     }
 
     .sidebar-header {
-      padding: 24px 20px 20px;
+      padding: 20px;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .sidebar-header h1 {
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
+    .sidebar-header img.logo { height: 24px; width: auto; }
+    .sidebar-header img.wordmark { height: 16px; width: auto; }
 
-    .sidebar-header p {
-      font-size: 12px;
+    .sidebar-section-label {
+      padding: 16px 20px 8px;
+      font-size: 10px;
+      font-weight: 600;
       color: var(--text-muted);
-      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .template-list { padding: 8px; flex: 1; }
@@ -87,6 +92,13 @@
       line-height: 1.4;
     }
 
+    .template-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
     .template-badge {
       display: inline-block;
       font-size: 10px;
@@ -95,11 +107,10 @@
       letter-spacing: 0.05em;
       padding: 2px 6px;
       border-radius: 4px;
-      margin-top: 6px;
     }
 
-    .badge-transactional { background: #E8F5E9; color: #2E7D32; }
-    .badge-digest { background: #FFF3E0; color: #E65100; }
+    .badge-transactional { background: hsl(152 69% 40% / 0.1); color: hsl(152 69% 30%); }
+    .badge-digest { background: hsl(14 78% 54% / 0.08); color: hsl(14 78% 42%); }
 
     .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
@@ -160,9 +171,9 @@
     .source-btn:hover { background: var(--bg); color: var(--text); }
 
     .source-btn.active {
-      background: var(--text);
-      color: var(--card);
-      border-color: var(--text);
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
     }
 
     .preview-container {
@@ -183,8 +194,8 @@
       width: 100%;
       border: none;
       background: var(--bg);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
     .source-container {
@@ -212,9 +223,10 @@
   <div class="layout">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h1>ChurnWire Emails</h1>
-        <p>3 templates</p>
+        <img class="logo" src="https://api.segment8.com/storage/v1/object/public/ws-04-02/churnwire-logo.png" alt="">
+        <img class="wordmark" src="https://api.segment8.com/storage/v1/object/public/ws-04-02/workmark-dk.png" alt="ChurnWire">
       </div>
+      <div class="sidebar-section-label">Email templates</div>
       <div class="template-list" id="templateList"></div>
     </aside>
 
@@ -651,7 +663,9 @@
       btn.innerHTML = `
         <span class="template-name">${t.name}</span>
         <span class="template-subject">${t.subject}</span>
-        <span class="template-badge badge-${t.type}">${t.type}</span>
+        <div class="template-meta">
+          <span class="template-badge badge-${t.type}">${t.type}</span>
+        </div>
       `;
       btn.addEventListener('click', () => selectTemplate(t));
       listEl.appendChild(btn);
