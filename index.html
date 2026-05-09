@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChurnWire Email Templates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF9;
+      --card: #FFFFFF;
+      --border: #E2E4E8;
+      --text: #1A1D23;
+      --text-secondary: #5E6370;
+      --text-muted: #8A8F9A;
+      --accent: #E04E2A;
+      --accent-bg: rgba(224, 78, 42, 0.06);
+      --sidebar-w: 280px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .layout {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 24px 20px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-header h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .sidebar-header p {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .template-list {
+      padding: 8px;
+      flex: 1;
+    }
+
+    .template-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s;
+    }
+
+    .template-item:hover {
+      background: var(--bg);
+    }
+
+    .template-item.active {
+      background: var(--accent-bg);
+    }
+
+    .template-item.active .template-name {
+      color: var(--accent);
+    }
+
+    .template-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+    }
+
+    .template-subject {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .template-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+
+    .badge-transactional {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .badge-digest {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .viewport-buttons {
+      display: flex;
+      gap: 2px;
+      background: var(--bg);
+      padding: 3px;
+      border-radius: 8px;
+    }
+
+    .viewport-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .viewport-btn:hover {
+      color: var(--text);
+    }
+
+    .viewport-btn.active {
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .source-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .source-btn:hover {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .source-btn.active {
+      background: var(--text);
+      color: var(--card);
+      border-color: var(--text);
+    }
+
+    /* Preview area */
+    .preview-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 32px 20px;
+      background: #F0F1F3;
+    }
+
+    .preview-frame-wrapper {
+      transition: width 0.3s ease;
+      height: fit-content;
+    }
+
+    .preview-frame-wrapper.desktop { width: 700px; }
+    .preview-frame-wrapper.tablet  { width: 480px; }
+    .preview-frame-wrapper.mobile  { width: 375px; }
+
+    .preview-frame {
+      width: 100%;
+      border: none;
+      background: var(--bg);
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    /* Source view */
+    .source-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: #1A1D23;
+      display: none;
+    }
+
+    .source-container.visible {
+      display: block;
+    }
+
+    .source-container pre {
+      margin: 0;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #C9D1D9;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>ChurnWire Emails</h1>
+        <p>3 templates</p>
+      </div>
+      <div class="template-list" id="templateList"></div>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <span class="toolbar-title" id="toolbarTitle">Select a template</span>
+        <div class="viewport-buttons">
+          <button class="viewport-btn active" data-viewport="desktop">Desktop</button>
+          <button class="viewport-btn" data-viewport="tablet">Tablet</button>
+          <button class="viewport-btn" data-viewport="mobile">Mobile</button>
+        </div>
+        <button class="source-btn" id="sourceToggle">Source</button>
+      </div>
+
+      <div class="preview-container" id="previewContainer">
+        <div class="preview-frame-wrapper desktop" id="frameWrapper">
+          <iframe class="preview-frame" id="previewFrame" title="Email preview"></iframe>
+        </div>
+      </div>
+
+      <div class="source-container" id="sourceContainer">
+        <pre id="sourceCode"></pre>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const templates = [
+      {
+        id: 'magic-link',
+        name: 'Magic Link',
+        subject: 'Your sign-in link for ChurnWire',
+        type: 'transactional',
+        file: 'templates/magic-link.html',
+      },
+      {
+        id: 'digest',
+        name: 'Daily Digest',
+        subject: '5 customers need attention — ChurnWire Daily',
+        type: 'digest',
+        file: 'templates/digest.html',
+      },
+      {
+        id: 'digest-empty',
+        name: 'Daily Digest (empty)',
+        subject: '0 customers need attention — ChurnWire Daily',
+        type: 'digest',
+        file: 'templates/digest-empty.html',
+      },
+    ];
+
+    const listEl = document.getElementById('templateList');
+    const frameWrapper = document.getElementById('frameWrapper');
+    const previewFrame = document.getElementById('previewFrame');
+    const previewContainer = document.getElementById('previewContainer');
+    const sourceContainer = document.getElementById('sourceContainer');
+    const sourceCode = document.getElementById('sourceCode');
+    const toolbarTitle = document.getElementById('toolbarTitle');
+    const sourceToggle = document.getElementById('sourceToggle');
+
+    let activeTemplate = null;
+    let showingSource = false;
+    let templateCache = {};
+
+    // Render sidebar
+    templates.forEach((t) => {
+      const btn = document.createElement('button');
+      btn.className = 'template-item';
+      btn.dataset.id = t.id;
+      btn.innerHTML = `
+        <span class="template-name">${t.name}</span>
+        <span class="template-subject">${t.subject}</span>
+        <span class="template-badge badge-${t.type}">${t.type}</span>
+      `;
+      btn.addEventListener('click', () => selectTemplate(t));
+      listEl.appendChild(btn);
+    });
+
+    async function selectTemplate(t) {
+      activeTemplate = t;
+      toolbarTitle.textContent = t.name;
+
+      document.querySelectorAll('.template-item').forEach((el) => {
+        el.classList.toggle('active', el.dataset.id === t.id);
+      });
+
+      if (!templateCache[t.id]) {
+        const res = await fetch(t.file);
+        templateCache[t.id] = await res.text();
+      }
+
+      const html = templateCache[t.id];
+
+      // Write into iframe
+      const doc = previewFrame.contentDocument;
+      doc.open();
+      doc.write(html);
+      doc.close();
+
+      // Auto-resize iframe to content
+      previewFrame.onload = () => resizeFrame();
+      setTimeout(resizeFrame, 100);
+
+      // Update source view
+      sourceCode.textContent = html;
+    }
+
+    function resizeFrame() {
+      try {
+        const h = previewFrame.contentDocument.documentElement.scrollHeight;
+        previewFrame.style.height = h + 'px';
+      } catch (e) {}
+    }
+
+    // Viewport switching
+    document.querySelectorAll('.viewport-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.viewport-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        frameWrapper.className = 'preview-frame-wrapper ' + btn.dataset.viewport;
+        setTimeout(resizeFrame, 350);
+      });
+    });
+
+    // Source toggle
+    sourceToggle.addEventListener('click', () => {
+      showingSource = !showingSource;
+      sourceToggle.classList.toggle('active', showingSource);
+      previewContainer.style.display = showingSource ? 'none' : 'flex';
+      sourceContainer.classList.toggle('visible', showingSource);
+    });
+
+    // Select first template on load
+    selectTemplate(templates[0]);
+  </script>
+</body>
+</html>
