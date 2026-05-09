@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Templates | %name%</title>
+  <link rel="icon" href="https://api.segment8.com/storage/v1/object/public/ws-04-02/churnwire-logo.png" type="image/png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF9;
+      --card: #FFFFFF;
+      --border: #E2E4E8;
+      --text: #1A1D23;
+      --text-secondary: #5E6370;
+      --text-muted: #8A8F9A;
+      --accent: %accent%;
+      --accent-bg: rgba(224, 78, 42, 0.06);
+      --sidebar-w: 280px;
+    }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "rlig" 1, "calt" 1;
+    }
+
+    .layout { display: flex; height: 100vh; }
+
+    .sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      background: var(--card);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sidebar-header img.logo { height: 24px; width: auto; }
+    .sidebar-header img.wordmark { height: 16px; width: auto; }
+
+    .sidebar-section-label {
+      padding: 16px 20px 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .template-list { padding: 8px; }
+
+    .template-item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 14px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.15s;
+    }
+
+    .template-item:hover { background: var(--bg); }
+    .template-item.active { background: var(--accent-bg); }
+    .template-item.active .template-name { color: var(--accent); }
+
+    .template-name { font-size: 13px; font-weight: 600; color: var(--text); display: block; }
+
+    .template-subject {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .template-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .template-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .badge-transactional { background: hsl(152 69% 40% / 0.1); color: hsl(152 69% 30%); }
+    .badge-digest { background: hsl(14 78% 54% / 0.08); color: hsl(14 78% 42%); }
+    .badge-marketing { background: hsl(220 70% 50% / 0.1); color: hsl(220 70% 40%); }
+
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .toolbar-title { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+
+    .viewport-buttons {
+      display: flex;
+      gap: 2px;
+      background: var(--bg);
+      padding: 3px;
+      border-radius: 8px;
+    }
+
+    .viewport-btn {
+      background: none;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .viewport-btn:hover { color: var(--text); }
+
+    .viewport-btn.active {
+      background: var(--card);
+      color: var(--text);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
+
+    .source-btn {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .source-btn:hover { background: var(--bg); color: var(--text); }
+
+    .source-btn.active {
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
+    }
+
+    .preview-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 32px 20px;
+      background: #F0F1F3;
+    }
+
+    .preview-frame-wrapper { transition: width 0.3s ease; height: fit-content; }
+    .preview-frame-wrapper.desktop { width: 700px; }
+    .preview-frame-wrapper.tablet  { width: 480px; }
+    .preview-frame-wrapper.mobile  { width: 375px; }
+
+    .preview-frame {
+      width: 100%;
+      border: none;
+      background: var(--bg);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .source-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: #1A1D23;
+      display: none;
+    }
+
+    .source-container.visible { display: block; }
+
+    .source-container pre {
+      margin: 0;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #C9D1D9;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <img class="logo" src="https://api.segment8.com/storage/v1/object/public/ws-04-02/churnwire-logo.png" alt="">
+        <img class="wordmark" src="https://api.segment8.com/storage/v1/object/public/ws-04-02/workmark-dk.png" alt="%name%">
+      </div>
+      <div class="sidebar-section-label">Automated</div>
+      <div class="template-list" id="templateListAutomated"></div>
+      <div class="sidebar-section-label">Marketing</div>
+      <div class="template-list" id="templateListMarketing"></div>
+    </aside>
+
+    <main class="main">
+      <div class="toolbar">
+        <span class="toolbar-title" id="toolbarTitle">Select a template</span>
+        <div class="viewport-buttons">
+          <button class="viewport-btn active" data-viewport="desktop">Desktop</button>
+          <button class="viewport-btn" data-viewport="tablet">Tablet</button>
+          <button class="viewport-btn" data-viewport="mobile">Mobile</button>
+        </div>
+        <button class="source-btn" id="sourceToggle">Source</button>
+      </div>
+
+      <div class="preview-container" id="previewContainer">
+        <div class="preview-frame-wrapper desktop" id="frameWrapper">
+          <iframe class="preview-frame" id="previewFrame" title="Email preview"></iframe>
+        </div>
+      </div>
+
+      <div class="source-container" id="sourceContainer">
+        <pre id="sourceCode"></pre>
+      </div>
+    </main>
+  </div>
+
+  <!-- TEMPLATES -->
+
+  <script>
+    const templates = [
+/* TEMPLATE_ENTRIES */
+    ];
+
+    const listAutomated = document.getElementById('templateListAutomated');
+    const listMarketing = document.getElementById('templateListMarketing');
+    const frameWrapper = document.getElementById('frameWrapper');
+    const previewFrame = document.getElementById('previewFrame');
+    const previewContainer = document.getElementById('previewContainer');
+    const sourceContainer = document.getElementById('sourceContainer');
+    const sourceCode = document.getElementById('sourceCode');
+    const toolbarTitle = document.getElementById('toolbarTitle');
+    const sourceToggle = document.getElementById('sourceToggle');
+
+    let showingSource = false;
+
+    templates.forEach((t) => {
+      const btn = document.createElement('button');
+      btn.className = 'template-item';
+      btn.dataset.id = t.id;
+      btn.innerHTML = `
+        <span class="template-name">${t.name}</span>
+        <div class="template-meta">
+          <span class="template-badge badge-${t.type}">${t.type}</span>
+        </div>
+      `;
+      btn.addEventListener('click', () => selectTemplate(t));
+      (t.type === 'marketing' ? listMarketing : listAutomated).appendChild(btn);
+    });
+
+    function selectTemplate(t) {
+      toolbarTitle.textContent = t.name;
+
+      document.querySelectorAll('.template-item').forEach((el) => {
+        el.classList.toggle('active', el.dataset.id === t.id);
+      });
+
+      const html = document.getElementById(t.scriptId).textContent;
+
+      const doc = previewFrame.contentDocument;
+      doc.open();
+      doc.write(html);
+      doc.close();
+
+      setTimeout(resizeFrame, 150);
+
+      sourceCode.textContent = html.trim();
+    }
+
+    function resizeFrame() {
+      try {
+        const h = previewFrame.contentDocument.documentElement.scrollHeight;
+        previewFrame.style.height = h + 'px';
+      } catch (e) {}
+    }
+
+    document.querySelectorAll('.viewport-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.viewport-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        frameWrapper.className = 'preview-frame-wrapper ' + btn.dataset.viewport;
+        setTimeout(resizeFrame, 350);
+      });
+    });
+
+    sourceToggle.addEventListener('click', () => {
+      showingSource = !showingSource;
+      sourceToggle.classList.toggle('active', showingSource);
+      previewContainer.style.display = showingSource ? 'none' : 'flex';
+      sourceContainer.classList.toggle('visible', showingSource);
+    });
+
+    selectTemplate(templates[0]);
+  </script>
+</body>
+</html>

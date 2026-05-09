@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link href="%fontImport%" rel="stylesheet">
+  <style>
+    :root { color-scheme: light dark; }
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+    @media (prefers-color-scheme: dark) {
+      body, .email-bg { background-color: %darkBg% !important; }
+      .email-card { background-color: %darkCard% !important; }
+      .email-divider-cell { background-color: %darkCard% !important; }
+      .email-divider { background-color: %darkBorder% !important; }
+      .email-h1, .email-heading { color: %darkText% !important; }
+      .email-body-text { color: %darkTextSecondary% !important; }
+      .email-muted { color: %darkTextMuted% !important; }
+      .email-signal-border { border-color: %darkBorder% !important; }
+      .email-signal-row { border-color: %darkBorder% !important; }
+      .email-signal-customer { color: %darkText% !important; }
+      .email-signal-detail { color: %darkTextSecondary% !important; }
+      .email-footer a { color: %darkTextMuted% !important; }
+    }
+  </style>
+</head>
+<body class="email-bg" style="margin:0;padding:0;background-color:%bg%;font-family:%font%;color:%text%;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;font-size:1px;color:%bg%;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">Your customers are showing churn signals — here's what you're missing&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-bg" style="background-color:%bg%;">
+    <tr>
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
+        <!--[if mso]><table role="presentation" width="520" cellpadding="0" cellspacing="0" align="center"><tr><td><![endif]-->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <!-- Header image -->
+          <tr>
+            <td>
+              <img src="%headerImage%" alt="%name%" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <!-- Divider -->
+          <tr>
+            <td class="email-divider-cell" style="background-color:%card%;">
+              <div class="email-divider" style="height:1px;background-color:%divider%;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <!-- Body -->
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-card" style="background-color:%card%;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:%text%;">
+                      While you were away
+                    </h1>
+                    <p class="email-body-text" style="margin:0 0 8px;font-size:14px;color:%textSecondary%;line-height:1.7;">
+                      Hey {{contact.firstname || "there"}}, it's been a little while since your %name% trial ended. We kept an eye on your Stripe account — here's what happened:
+                    </p>
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:%textSecondary%;line-height:1.7;">
+                      <strong style="color:%accent%;">{{contact.missed_signals || "3"}} churn signals</strong> fired that you didn't see.
+                    </p>
+
+                    <!-- Example signals -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <span class="email-heading" style="font-size:13px;font-weight:600;color:%text%;">Signals you missed</span>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-border" style="border:1px solid %border%;border-radius:10px;overflow:hidden;margin-bottom:24px;">
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row" style="border-bottom:1px solid %borderLight%;">
+                            <tr>
+                              <td style="width:3px;background-color:%accent%;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:%text%;margin-bottom:2px;">{{contact.missed_signal_1_customer || "Acme Corp"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:%textSecondary%;">{{contact.missed_signal_1_event || "Payment failed (retry #3)"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row" style="border-bottom:1px solid %borderLight%;">
+                            <tr>
+                              <td style="width:3px;background-color:%accent%;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:%text%;margin-bottom:2px;">{{contact.missed_signal_2_customer || "Foxglove AI"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:%textSecondary%;">{{contact.missed_signal_2_event || "Downgraded to free plan"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding:0;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-signal-row">
+                            <tr>
+                              <td style="width:3px;background-color:%accentSecondary%;"></td>
+                              <td style="padding:10px 12px;">
+                                <div class="email-signal-customer" style="font-size:12px;font-weight:600;color:%text%;margin-bottom:2px;">{{contact.missed_signal_3_customer || "NovaTech"}}</div>
+                                <div class="email-signal-detail" style="font-size:11px;color:%textSecondary%;">{{contact.missed_signal_3_event || "Card expiring next week"}}</div>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:%textSecondary%;line-height:1.7;">
+                      Each of these was a chance to reach out and save the account. Your trial data is still here — pick up where you left off.
+                    </p>
+
+                    <!-- CTA -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:%accent%;">
+                                <a class="email-cta-link" href="%billingUrl%" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:%card%;text-decoration:none;border-radius:10px;">
+                                  Reactivate my account &rarr;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <p class="email-muted" style="margin:24px 0 0;font-size:12px;color:%textMuted%;text-align:center;line-height:1.6;">
+                      Not the right time? No worries — we won't email again.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p class="email-footer email-muted" style="margin:0;font-size:12px;color:%textMuted%;line-height:1.5;">
+                %name% — %tagline%<br>
+                <a href="%appUrl%" style="color:%textMuted%;text-decoration:underline;">Open dashboard</a>
+                &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:%textMuted%;text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Stripe | %name%</title>
+  <link href="%fontImport%" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: %font%;
+      background-color: %bg%;
+      color: %text%;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px 0;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .header-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .divider-wrap {
+      background: %card%;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: %divider%;
+      margin: 0 32px;
+    }
+
+    .card {
+      background: %card%;
+      border-radius: 0 0 12px 12px;
+      padding: 28px 32px 36px;
+    }
+
+    .label {
+      margin: 0 0 4px;
+      font-size: 11px;
+      font-weight: 500;
+      color: %textMuted%;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: %text%;
+    }
+
+    .body-text {
+      margin: 0 0 24px;
+      font-size: 14px;
+      color: %textSecondary%;
+      line-height: 1.7;
+    }
+
+    .body-text strong {
+      color: %text%;
+      font-weight: 600;
+    }
+
+    .callout {
+      background: %bg%;
+      border: 1px solid %border%;
+      border-radius: 10px;
+      border-left: 3px solid %accent%;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 13px;
+      color: %textSecondary%;
+      line-height: 1.6;
+    }
+
+    .callout strong {
+      color: %text%;
+      font-weight: 600;
+    }
+
+    .section-heading {
+      font-size: 13px;
+      font-weight: 600;
+      color: %text%;
+      margin-bottom: 8px;
+    }
+
+    .access-list {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+
+    .access-list li {
+      font-size: 13px;
+      color: %textSecondary%;
+      line-height: 1.6;
+      padding: 6px 0;
+      border-bottom: 1px solid %borderLight%;
+    }
+
+    .access-list li:last-child {
+      border-bottom: none;
+    }
+
+    .access-list li strong {
+      color: %text%;
+      font-weight: 600;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: %accent%;
+      color: #FFFFFF;
+      font-family: %font%;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .cta-btn:hover { opacity: 0.92; }
+
+    .muted-note {
+      margin: 24px 0 0;
+      font-size: 12px;
+      color: %textMuted%;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .footer {
+      padding: 20px 0 40px;
+      text-align: center;
+      font-size: 12px;
+      color: %textMuted%;
+      line-height: 1.5;
+    }
+
+    .footer a {
+      color: %textMuted%;
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 480px) {
+      body { padding: 20px 12px 0; }
+      .card { padding: 20px 16px 28px; }
+      h1 { font-size: 18px; }
+      .body-text { font-size: 14px; }
+      .divider { margin: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <img class="header-img" src="%headerImage%" alt="%name%" width="520">
+
+    <div class="divider-wrap">
+      <div class="divider"></div>
+    </div>
+
+    <div class="card">
+      <p class="label">Get Started</p>
+      <h1>Connect your Stripe account</h1>
+      <p class="body-text">
+        %name% uses <strong>read-only</strong> Stripe access to detect churn signals — failed payments, downgrades, cancellations — before they become lost revenue. Connect takes about two minutes.
+      </p>
+
+      <p class="section-heading">What we look at</p>
+      <ul class="access-list">
+        <li><strong>Subscriptions</strong> — status, plan, billing cycle, trial dates</li>
+        <li><strong>Payment events</strong> — failures, retries, refunds, disputes</li>
+        <li><strong>Customer info</strong> — name, email, MRR, created date</li>
+      </ul>
+
+      <div class="callout">
+        <p>We never touch your bank account, payouts, or balances. Access is read-only and can be revoked from your Stripe dashboard at any time.</p>
+      </div>
+
+      <a href="%onboardingUrl%" class="cta-btn">Connect Stripe &rarr;</a>
+
+      <p class="muted-note">
+        You'll be redirected to Stripe to authorize. No credit card required.
+      </p>
+    </div>
+
+    <div class="footer">
+      %name% &mdash; %tagline%<br>
+      <a href="%url%">Learn more</a>
+    </div>
+  </div>
+</body>
+</html>
