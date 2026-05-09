@@ -29,12 +29,8 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    .layout {
-      display: flex;
-      height: 100vh;
-    }
+    .layout { display: flex; height: 100vh; }
 
-    /* Sidebar */
     .sidebar {
       width: var(--sidebar-w);
       min-width: var(--sidebar-w);
@@ -54,7 +50,6 @@
       font-size: 15px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--text);
     }
 
     .sidebar-header p {
@@ -63,10 +58,7 @@
       margin-top: 4px;
     }
 
-    .template-list {
-      padding: 8px;
-      flex: 1;
-    }
+    .template-list { padding: 8px; flex: 1; }
 
     .template-item {
       display: block;
@@ -81,24 +73,11 @@
       transition: background-color 0.15s;
     }
 
-    .template-item:hover {
-      background: var(--bg);
-    }
+    .template-item:hover { background: var(--bg); }
+    .template-item.active { background: var(--accent-bg); }
+    .template-item.active .template-name { color: var(--accent); }
 
-    .template-item.active {
-      background: var(--accent-bg);
-    }
-
-    .template-item.active .template-name {
-      color: var(--accent);
-    }
-
-    .template-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      display: block;
-    }
+    .template-name { font-size: 13px; font-weight: 600; color: var(--text); display: block; }
 
     .template-subject {
       font-size: 11px;
@@ -119,23 +98,10 @@
       margin-top: 6px;
     }
 
-    .badge-transactional {
-      background: #E8F5E9;
-      color: #2E7D32;
-    }
+    .badge-transactional { background: #E8F5E9; color: #2E7D32; }
+    .badge-digest { background: #FFF3E0; color: #E65100; }
 
-    .badge-digest {
-      background: #FFF3E0;
-      color: #E65100;
-    }
-
-    /* Main */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+    .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
     .toolbar {
       display: flex;
@@ -147,12 +113,7 @@
       flex-shrink: 0;
     }
 
-    .toolbar-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text);
-      flex: 1;
-    }
+    .toolbar-title { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
 
     .viewport-buttons {
       display: flex;
@@ -175,9 +136,7 @@
       transition: all 0.15s;
     }
 
-    .viewport-btn:hover {
-      color: var(--text);
-    }
+    .viewport-btn:hover { color: var(--text); }
 
     .viewport-btn.active {
       background: var(--card);
@@ -198,10 +157,7 @@
       transition: all 0.15s;
     }
 
-    .source-btn:hover {
-      background: var(--bg);
-      color: var(--text);
-    }
+    .source-btn:hover { background: var(--bg); color: var(--text); }
 
     .source-btn.active {
       background: var(--text);
@@ -209,7 +165,6 @@
       border-color: var(--text);
     }
 
-    /* Preview area */
     .preview-container {
       flex: 1;
       display: flex;
@@ -219,11 +174,7 @@
       background: #F0F1F3;
     }
 
-    .preview-frame-wrapper {
-      transition: width 0.3s ease;
-      height: fit-content;
-    }
-
+    .preview-frame-wrapper { transition: width 0.3s ease; height: fit-content; }
     .preview-frame-wrapper.desktop { width: 700px; }
     .preview-frame-wrapper.tablet  { width: 480px; }
     .preview-frame-wrapper.mobile  { width: 375px; }
@@ -236,7 +187,6 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.04);
     }
 
-    /* Source view */
     .source-container {
       flex: 1;
       overflow-y: auto;
@@ -245,9 +195,7 @@
       display: none;
     }
 
-    .source-container.visible {
-      display: block;
-    }
+    .source-container.visible { display: block; }
 
     .source-container pre {
       margin: 0;
@@ -293,6 +241,373 @@
     </main>
   </div>
 
+  <!-- Inlined templates -->
+  <script id="tpl-magic-link" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" style="padding:40px 20px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:#FFFFFF;">
+              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td style="padding:28px 32px 36px;">
+                    <h1 style="margin:0 0 8px;font-size:22px;font-weight:700;letter-spacing:-0.02em;color:#2D2D2D;">
+                      Hi there,
+                    </h1>
+                    <p style="margin:0 0 28px;font-size:15px;color:#5E6370;line-height:1.7;">
+                      Thanks for being part of the ChurnWire community.<br>
+                      Tap the button below to sign in &#8212; no password needed.
+                    </p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:10px;background-color:#E04E2A;">
+                                <a href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="display:inline-block;padding:14px 36px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                  Open your dashboard &#8594;
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="margin:24px 0 0;font-size:13px;color:#8A8F9A;line-height:1.6;text-align:center;">
+                      This link expires in 15 minutes and can only be used once.
+                    </p>
+                    <hr style="margin:28px 0;border:none;border-top:1px solid #F0F1F3;">
+                    <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;word-break:break-all;">
+                      <span style="color:#5E6370;font-weight:500;">Can't click the button?</span> Copy this link:<br>
+                      <a href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="color:#E04E2A;text-decoration:none;">https://churnwire.com/api/auth/magic-link/verify?token=example</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire &#8212; Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-digest" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" style="padding:40px 20px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:#FFFFFF;">
+              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td style="padding:28px 32px 36px;">
+                    <p style="margin:0 0 4px;font-size:13px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      Daily Report
+                    </p>
+                    <h1 style="margin:0 0 6px;font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      Customer Health
+                    </h1>
+                    <p style="margin:0 0 24px;font-size:15px;color:#5E6370;line-height:1.5;">
+                      <span style="font-weight:600;color:#2D2D2D;">247</span> active subscribers &#183;
+                      <span style="font-weight:600;color:#E04E2A;">5</span> need attention today
+                    </p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Subscribers</div>
+                              <div style="font-size:22px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">247</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">At Risk</div>
+                              <div style="font-size:22px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">5</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Watch</div>
+                              <div style="font-size:22px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">12</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Healthy</div>
+                              <div style="font-size:22px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">230</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
+                      <tr>
+                        <td style="padding-bottom:12px;">
+                          <span style="font-size:14px;font-weight:600;color:#2D2D2D;">Recent signals</span>
+                          <span style="font-size:12px;color:#8A8F9A;margin-left:8px;">4 new</span>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E2E4E8;border-radius:10px;overflow:hidden;">
+                      <tr><td style="padding:0;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
+                          <tr>
+                            <td style="width:3px;background-color:#E04E2A;"></td>
+                            <td style="padding:12px 14px;">
+                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Acme Corp</div>
+                              <div style="font-size:12px;color:#5E6370;">Payment failed (retry #2)</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td></tr>
+                      <tr><td style="padding:0;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
+                          <tr>
+                            <td style="width:3px;background-color:#E04E2A;"></td>
+                            <td style="padding:12px 14px;">
+                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Foxglove AI</div>
+                              <div style="font-size:12px;color:#5E6370;">Cancellation scheduled</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td></tr>
+                      <tr><td style="padding:0;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
+                          <tr>
+                            <td style="width:3px;background-color:#E04E2A;"></td>
+                            <td style="padding:12px 14px;">
+                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">NovaTech</div>
+                              <div style="font-size:12px;color:#5E6370;">Card expiring next month</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td></tr>
+                      <tr><td style="padding:0;">
+                        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td style="width:3px;background-color:#E04E2A;"></td>
+                            <td style="padding:12px 14px;">
+                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Bright Studio</div>
+                              <div style="font-size:12px;color:#5E6370;">Downgraded from Team</div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td></tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:8px;background-color:#E04E2A;">
+                                <a href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
+                                  View full dashboard
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;">
+                      This digest is sent daily at 9am. <a href="https://churnwire.com/app/settings" style="color:#8A8F9A;text-decoration:underline;">Manage preferences</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire &#8212; Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
+  <script id="tpl-digest-empty" type="text/html">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
+    <tr>
+      <td align="center" style="padding:40px 20px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
+          <tr>
+            <td>
+              <img src="https://api.segment8.com/storage/v1/object/public/ws-04-02/email-header.png" alt="ChurnWire" width="520" style="width:100%;height:auto;display:block;border-radius:12px 12px 0 0;">
+            </td>
+          </tr>
+          <tr>
+            <td style="background-color:#FFFFFF;">
+              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
+                <tr>
+                  <td style="padding:28px 32px 36px;">
+                    <p style="margin:0 0 4px;font-size:13px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                      Daily Report
+                    </p>
+                    <h1 style="margin:0 0 6px;font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                      Customer Health
+                    </h1>
+                    <p style="margin:0 0 24px;font-size:15px;color:#5E6370;line-height:1.5;">
+                      <span style="font-weight:600;color:#2D2D2D;">183</span> active subscribers &#183;
+                      <span style="font-weight:600;color:#E04E2A;">0</span> need attention today
+                    </p>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                      <tr>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Subscribers</div>
+                              <div style="font-size:22px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">183</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">At Risk</div>
+                              <div style="font-size:22px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">0</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Watch</div>
+                              <div style="font-size:22px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">3</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                        <td style="width:25%;padding:0 4px;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
+                            <tr><td style="padding:16px 14px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Healthy</div>
+                              <div style="font-size:22px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">180</div>
+                            </td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E2E4E8;border-radius:10px;">
+                      <tr>
+                        <td style="padding:20px;text-align:center;">
+                          <p style="margin:0;font-size:14px;color:#8A8F9A;">No new signals in the last 24 hours. All clear.</p>
+                        </td>
+                      </tr>
+                    </table>
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:28px;">
+                      <tr>
+                        <td align="center">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="border-radius:8px;background-color:#E04E2A;">
+                                <a href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
+                                  View full dashboard
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="margin:24px 0 0;font-size:12px;color:#8A8F9A;text-align:center;">
+                      This digest is sent daily at 9am. <a href="https://churnwire.com/app/settings" style="color:#8A8F9A;text-decoration:underline;">Manage preferences</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 0 40px;text-align:center;">
+              <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;">
+                ChurnWire &#8212; Know who's leaving before they do<br>
+                <a href="https://churnwire.com/app" style="color:#8A8F9A;text-decoration:underline;">Open dashboard</a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+  </script>
+
   <script>
     const templates = [
       {
@@ -300,21 +615,21 @@
         name: 'Magic Link',
         subject: 'Your sign-in link for ChurnWire',
         type: 'transactional',
-        file: 'templates/magic-link.html',
+        scriptId: 'tpl-magic-link',
       },
       {
         id: 'digest',
         name: 'Daily Digest',
         subject: '5 customers need attention — ChurnWire Daily',
         type: 'digest',
-        file: 'templates/digest.html',
+        scriptId: 'tpl-digest',
       },
       {
         id: 'digest-empty',
         name: 'Daily Digest (empty)',
         subject: '0 customers need attention — ChurnWire Daily',
         type: 'digest',
-        file: 'templates/digest-empty.html',
+        scriptId: 'tpl-digest-empty',
       },
     ];
 
@@ -327,11 +642,8 @@
     const toolbarTitle = document.getElementById('toolbarTitle');
     const sourceToggle = document.getElementById('sourceToggle');
 
-    let activeTemplate = null;
     let showingSource = false;
-    let templateCache = {};
 
-    // Render sidebar
     templates.forEach((t) => {
       const btn = document.createElement('button');
       btn.className = 'template-item';
@@ -345,33 +657,23 @@
       listEl.appendChild(btn);
     });
 
-    async function selectTemplate(t) {
-      activeTemplate = t;
+    function selectTemplate(t) {
       toolbarTitle.textContent = t.name;
 
       document.querySelectorAll('.template-item').forEach((el) => {
         el.classList.toggle('active', el.dataset.id === t.id);
       });
 
-      if (!templateCache[t.id]) {
-        const res = await fetch(t.file);
-        templateCache[t.id] = await res.text();
-      }
+      const html = document.getElementById(t.scriptId).textContent;
 
-      const html = templateCache[t.id];
-
-      // Write into iframe
       const doc = previewFrame.contentDocument;
       doc.open();
       doc.write(html);
       doc.close();
 
-      // Auto-resize iframe to content
-      previewFrame.onload = () => resizeFrame();
-      setTimeout(resizeFrame, 100);
+      setTimeout(resizeFrame, 150);
 
-      // Update source view
-      sourceCode.textContent = html;
+      sourceCode.textContent = html.trim();
     }
 
     function resizeFrame() {
@@ -381,7 +683,6 @@
       } catch (e) {}
     }
 
-    // Viewport switching
     document.querySelectorAll('.viewport-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.viewport-btn').forEach((b) => b.classList.remove('active'));
@@ -391,7 +692,6 @@
       });
     });
 
-    // Source toggle
     sourceToggle.addEventListener('click', () => {
       showingSource = !showingSource;
       sourceToggle.classList.toggle('active', showingSource);
@@ -399,7 +699,6 @@
       sourceContainer.classList.toggle('visible', showingSource);
     });
 
-    // Select first template on load
     selectTemplate(templates[0]);
   </script>
 </body>
