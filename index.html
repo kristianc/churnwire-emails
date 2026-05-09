@@ -261,11 +261,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+  </style>
 </head>
 <body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
     <tr>
-      <td align="center" style="padding:40px 20px 0;">
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
           <tr>
             <td>
@@ -274,18 +284,18 @@
           </tr>
           <tr>
             <td style="background-color:#FFFFFF;">
-              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
             </td>
           </tr>
           <tr>
             <td>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
                 <tr>
-                  <td style="padding:28px 32px 36px;">
-                    <h1 style="margin:0 0 8px;font-size:22px;font-weight:700;letter-spacing:-0.02em;color:#2D2D2D;">
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <h1 class="email-h1" style="margin:0 0 8px;font-size:20px;font-weight:700;letter-spacing:-0.02em;color:#2D2D2D;">
                       Hi there,
                     </h1>
-                    <p style="margin:0 0 28px;font-size:15px;color:#5E6370;line-height:1.7;">
+                    <p class="email-body-text" style="margin:0 0 28px;font-size:14px;color:#5E6370;line-height:1.7;">
                       Thanks for being part of the ChurnWire community.<br>
                       Tap the button below to sign in &#8212; no password needed.
                     </p>
@@ -295,7 +305,7 @@
                           <table role="presentation" cellpadding="0" cellspacing="0">
                             <tr>
                               <td style="border-radius:10px;background-color:#E04E2A;">
-                                <a href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="display:inline-block;padding:14px 36px;font-size:15px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
+                                <a class="email-cta-link" href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="display:inline-block;padding:14px 36px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:10px;">
                                   Open your dashboard &#8594;
                                 </a>
                               </td>
@@ -304,11 +314,11 @@
                         </td>
                       </tr>
                     </table>
-                    <p style="margin:24px 0 0;font-size:13px;color:#8A8F9A;line-height:1.6;text-align:center;">
+                    <p style="margin:24px 0 0;font-size:12px;color:#8A8F9A;line-height:1.6;text-align:center;">
                       This link expires in 15 minutes and can only be used once.
                     </p>
                     <hr style="margin:28px 0;border:none;border-top:1px solid #F0F1F3;">
-                    <p style="margin:0;font-size:12px;color:#8A8F9A;line-height:1.5;word-break:break-all;">
+                    <p style="margin:0;font-size:11px;color:#8A8F9A;line-height:1.5;word-break:break-all;">
                       <span style="color:#5E6370;font-weight:500;">Can't click the button?</span> Copy this link:<br>
                       <a href="https://churnwire.com/api/auth/magic-link/verify?token=example" style="color:#E04E2A;text-decoration:none;">https://churnwire.com/api/auth/magic-link/verify?token=example</a>
                     </p>
@@ -340,11 +350,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-stat-row { display: block !important; }
+      .email-stat-cell {
+        display: inline-block !important;
+        width: 48% !important;
+        margin-bottom: 8px !important;
+        padding: 0 2px !important;
+      }
+      .email-stat-value { font-size: 18px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+  </style>
 </head>
 <body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
     <tr>
-      <td align="center" style="padding:40px 20px 0;">
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
           <tr>
             <td>
@@ -353,55 +381,55 @@
           </tr>
           <tr>
             <td style="background-color:#FFFFFF;">
-              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
             </td>
           </tr>
           <tr>
             <td>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
                 <tr>
-                  <td style="padding:28px 32px 36px;">
-                    <p style="margin:0 0 4px;font-size:13px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
                       Daily Report
                     </p>
-                    <h1 style="margin:0 0 6px;font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
                       Customer Health
                     </h1>
-                    <p style="margin:0 0 24px;font-size:15px;color:#5E6370;line-height:1.5;">
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.5;">
                       <span style="font-weight:600;color:#2D2D2D;">247</span> active subscribers &#183;
                       <span style="font-weight:600;color:#E04E2A;">5</span> need attention today
                     </p>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
-                      <tr>
-                        <td style="width:25%;padding:0 4px;">
+                      <tr class="email-stat-row">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Subscribers</div>
-                              <div style="font-size:22px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">247</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Subscribers</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">247</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">At Risk</div>
-                              <div style="font-size:22px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">5</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">At Risk</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">5</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Watch</div>
-                              <div style="font-size:22px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">12</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Watch</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">12</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Healthy</div>
-                              <div style="font-size:22px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">230</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Healthy</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">230</div>
                             </td></tr>
                           </table>
                         </td>
@@ -410,8 +438,8 @@
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
                       <tr>
                         <td style="padding-bottom:12px;">
-                          <span style="font-size:14px;font-weight:600;color:#2D2D2D;">Recent signals</span>
-                          <span style="font-size:12px;color:#8A8F9A;margin-left:8px;">4 new</span>
+                          <span style="font-size:13px;font-weight:600;color:#2D2D2D;">Recent signals</span>
+                          <span style="font-size:11px;color:#8A8F9A;margin-left:8px;">4 new</span>
                         </td>
                       </tr>
                     </table>
@@ -420,9 +448,9 @@
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
                           <tr>
                             <td style="width:3px;background-color:#E04E2A;"></td>
-                            <td style="padding:12px 14px;">
-                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Acme Corp</div>
-                              <div style="font-size:12px;color:#5E6370;">Payment failed (retry #2)</div>
+                            <td style="padding:10px 12px;">
+                              <div style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Acme Corp</div>
+                              <div style="font-size:11px;color:#5E6370;">Payment failed (retry #2)</div>
                             </td>
                           </tr>
                         </table>
@@ -431,9 +459,9 @@
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
                           <tr>
                             <td style="width:3px;background-color:#E04E2A;"></td>
-                            <td style="padding:12px 14px;">
-                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Foxglove AI</div>
-                              <div style="font-size:12px;color:#5E6370;">Cancellation scheduled</div>
+                            <td style="padding:10px 12px;">
+                              <div style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Foxglove AI</div>
+                              <div style="font-size:11px;color:#5E6370;">Cancellation scheduled</div>
                             </td>
                           </tr>
                         </table>
@@ -442,9 +470,9 @@
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #F0F1F3;">
                           <tr>
                             <td style="width:3px;background-color:#E04E2A;"></td>
-                            <td style="padding:12px 14px;">
-                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">NovaTech</div>
-                              <div style="font-size:12px;color:#5E6370;">Card expiring next month</div>
+                            <td style="padding:10px 12px;">
+                              <div style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">NovaTech</div>
+                              <div style="font-size:11px;color:#5E6370;">Card expiring next month</div>
                             </td>
                           </tr>
                         </table>
@@ -453,9 +481,9 @@
                         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                           <tr>
                             <td style="width:3px;background-color:#E04E2A;"></td>
-                            <td style="padding:12px 14px;">
-                              <div style="font-size:13px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Bright Studio</div>
-                              <div style="font-size:12px;color:#5E6370;">Downgraded from Team</div>
+                            <td style="padding:10px 12px;">
+                              <div style="font-size:12px;font-weight:600;color:#2D2D2D;margin-bottom:2px;">Bright Studio</div>
+                              <div style="font-size:11px;color:#5E6370;">Downgraded from Team</div>
                             </td>
                           </tr>
                         </table>
@@ -467,7 +495,7 @@
                           <table role="presentation" cellpadding="0" cellspacing="0">
                             <tr>
                               <td style="border-radius:8px;background-color:#E04E2A;">
-                                <a href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
+                                <a class="email-cta-link" href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:13px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
                                   View full dashboard
                                 </a>
                               </td>
@@ -507,11 +535,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    @media screen and (max-width: 480px) {
+      .email-body-cell { padding: 20px 16px 28px !important; }
+      .email-outer-pad { padding: 20px 12px 0 !important; }
+      .email-h1 { font-size: 18px !important; }
+      .email-body-text { font-size: 14px !important; }
+      .email-stat-row { display: block !important; }
+      .email-stat-cell {
+        display: inline-block !important;
+        width: 48% !important;
+        margin-bottom: 8px !important;
+        padding: 0 2px !important;
+      }
+      .email-stat-value { font-size: 18px !important; }
+      .email-cta-link { padding: 12px 24px !important; font-size: 13px !important; }
+      .email-divider { margin: 0 16px !important; }
+    }
+  </style>
 </head>
 <body style="margin:0;padding:0;background-color:#FAFAF9;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#2D2D2D;-webkit-font-smoothing:antialiased;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAFAF9;">
     <tr>
-      <td align="center" style="padding:40px 20px 0;">
+      <td align="center" class="email-outer-pad" style="padding:40px 20px 0;">
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;">
           <tr>
             <td>
@@ -520,55 +566,55 @@
           </tr>
           <tr>
             <td style="background-color:#FFFFFF;">
-              <div style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
+              <div class="email-divider" style="height:1px;background-color:#E8E9EC;margin:0 32px;"></div>
             </td>
           </tr>
           <tr>
             <td>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;border-radius:0 0 12px 12px;">
                 <tr>
-                  <td style="padding:28px 32px 36px;">
-                    <p style="margin:0 0 4px;font-size:13px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
+                  <td class="email-body-cell" style="padding:28px 32px 36px;">
+                    <p style="margin:0 0 4px;font-size:11px;font-weight:500;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.06em;">
                       Daily Report
                     </p>
-                    <h1 style="margin:0 0 6px;font-size:22px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
+                    <h1 class="email-h1" style="margin:0 0 6px;font-size:20px;font-weight:600;letter-spacing:-0.02em;color:#2D2D2D;">
                       Customer Health
                     </h1>
-                    <p style="margin:0 0 24px;font-size:15px;color:#5E6370;line-height:1.5;">
+                    <p class="email-body-text" style="margin:0 0 24px;font-size:14px;color:#5E6370;line-height:1.5;">
                       <span style="font-weight:600;color:#2D2D2D;">183</span> active subscribers &#183;
                       <span style="font-weight:600;color:#E04E2A;">0</span> need attention today
                     </p>
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
-                      <tr>
-                        <td style="width:25%;padding:0 4px;">
+                      <tr class="email-stat-row">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Subscribers</div>
-                              <div style="font-size:22px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">183</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Subscribers</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#1A1D23;letter-spacing:-0.02em;">183</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">At Risk</div>
-                              <div style="font-size:22px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">0</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">At Risk</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#E04E2A;letter-spacing:-0.02em;">0</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Watch</div>
-                              <div style="font-size:22px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">3</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Watch</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#CC8A2C;letter-spacing:-0.02em;">3</div>
                             </td></tr>
                           </table>
                         </td>
-                        <td style="width:25%;padding:0 4px;">
+                        <td class="email-stat-cell" style="width:25%;padding:0 4px;">
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border:1px solid #E2E4E8;border-radius:10px;">
-                            <tr><td style="padding:16px 14px;">
-                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Healthy</div>
-                              <div style="font-size:22px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">180</div>
+                            <tr><td style="padding:14px 12px;">
+                              <div style="font-size:10px;font-weight:600;color:#8A8F9A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Healthy</div>
+                              <div class="email-stat-value" style="font-size:20px;font-weight:700;color:#5E7A8A;letter-spacing:-0.02em;">180</div>
                             </td></tr>
                           </table>
                         </td>
@@ -577,7 +623,7 @@
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E2E4E8;border-radius:10px;">
                       <tr>
                         <td style="padding:20px;text-align:center;">
-                          <p style="margin:0;font-size:14px;color:#8A8F9A;">No new signals in the last 24 hours. All clear.</p>
+                          <p style="margin:0;font-size:13px;color:#8A8F9A;">No new signals in the last 24 hours. All clear.</p>
                         </td>
                       </tr>
                     </table>
@@ -587,7 +633,7 @@
                           <table role="presentation" cellpadding="0" cellspacing="0">
                             <tr>
                               <td style="border-radius:8px;background-color:#E04E2A;">
-                                <a href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:14px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
+                                <a class="email-cta-link" href="https://churnwire.com/app" style="display:inline-block;padding:12px 32px;font-size:13px;font-weight:600;color:#FFFFFF;text-decoration:none;border-radius:8px;">
                                   View full dashboard
                                 </a>
                               </td>
